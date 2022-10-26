@@ -1,4 +1,4 @@
-# Sprint: JavaScript'e Giriş - Popüler Sanatçılar
+# Sprint 1 Challenge - Popüler Sanatçılar
 
 **Başlamadan önce bu talimatları dikkatlice okuyun ve tam olarak ne beklendiğini anlayın.**
 
@@ -51,7 +51,8 @@ Sana verilen gün sonu projesindeki görevleri tamamladıktan sonra bonus çalı
 
 ## Proje Teslim Etme Adımları
 
-Verilen görevi tamamladıktan sonra [Workintech Platformu](https://app.workintech.com.tr)'nda (app.workintech.com.tr) `Sprint 1>Gün 3`'ün sonuna eklenmiş olan "` Görev: Sprint 1'in 3. Gün projesini buraya yükle`" içeriğini açıp. GitHub hesabınızda oluşturduğunuz repo'nun adresini buraya ekleyiniz. Eğitmenlerimiz, gün projenizi kontrol edecek ve ertesi gün size slack üzerinden geribildirimde bulunacaklar.
+Verilen görevi tamamladıktan sonra [Workintech Platformu](https://app.workintech.com.tr)'nda (app.workintech.com.tr) `Sprint 1>Gün 4`'ün sonuna eklenmiş olan "`Görev: Sprint 1 Challenge Projesini Buraya Yükle`" içeriğini açıp. GitHub hesabınızda oluşturduğunuz repo'nun adresini buraya ekleyiniz. Eğitmenlerimiz, gün projenizi kontrol edecek ve ertesi gün size slack üzerinden geribildirimde bulunacaklar.
 
 ## Kaynaklar
 [W3 Schools - JavaScript Arrays](https://www.w3schools.com/js/js_arrays.asp)
+[W3 Schools - JavaScript Objects](https://www.w3schools.com/js/js_objects.asp)
