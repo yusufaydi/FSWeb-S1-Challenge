@@ -172,10 +172,7 @@ NOT: DÖNDÜĞÜNÜZ DİZİN YUKARIDAKİ BİÇİMLE EŞLEŞMESİ GEREKİR, YA DA
 ÖRNEK: fenomenler dizisi ve 3 sayısı ile indekseGoreFenomen çağrılırsa, `3. indekste bulunan fenomen: Leo Messi' */
 
 function indekseGoreFenomen(arr,index) {
-let str = `${index}. indekste bulunan fenomen: ${arr[index].profile}`;
-// let str =index+". indekste bulunan fenomen: "+arr[index].profile;
- console.log(str);
- return str;
+  return `${index}. indekste bulunan fenomen: ${arr[index].profile}`;
 }
 
 indekseGoreFenomen(fenomenler,3);
@@ -214,7 +211,7 @@ Aşağıdakileri yapmak için fenomenSil'i kullanın:
 ÖRNEK: fenomenSil işlevi fenomenler dizisi ve 0 indeks sayısı ile çağrılırsa, veri kümemizden 'Instagram' kaldırılmış olarak döndürür. */
 function fenomenSil(arr,value) {
   let newArr = [...arr];
-  let a = newArr.splice(value,1);
+  newArr.splice(value,1);
   console.log(newArr);
   return newArr;
   
@@ -243,11 +240,11 @@ Aşağıdakileri yapmak için fenomenEkle'i kullanın:
 function fenomenEkle(arr,number,profile,followers,posts,platform) {
   let copyArr = [...arr];
   let obj = {
-    "number":6,
-    "profile":"Workintech",
-    "followers":10000000,
-    "posts": 2022,
-    "platform":"Instagram"
+    "number":number,
+    "profile":profile,
+    "followers":followers,
+    "posts": posts,
+    "platform":platform
   };
 copyArr.push(obj);
 
@@ -255,6 +252,7 @@ return copyArr;
 
 }
 
+console.log("lets see",fenomenEkle(fenomenler,25,"Ali",28255,142587,"TikTok"));
 
 /* Görev 7:
 Aşağıdakileri yapmak için enFenomenler'yi kullanın:
@@ -278,7 +276,7 @@ function enFenomenler(arr) {
   //   }
   // return newArr;
 
-  const newArr = array.filter((person) => person.followers > 100000000 ).map((person) => person.profile);
+  const newArr = array.filter((person) => person.followers > 100000000).map((person) => person.profile);
   return newArr;
   
 
@@ -297,9 +295,10 @@ Aşağıdakileri yapmak için fenomenGonderimSayisi'nı kullanın:
 */
 
 function fenomenGonderimSayisi(arr,profile){
-  const _arr = arr.filter((person) => person.profile === profile).map((person) => person.posts);
-  const num = Number(_arr.join(''));
-  return num;
+  const _arr = Number(arr.filter((person) => person.profile === profile && person.posts !== 'NA').map((person) => person.posts));
+  //const arr_ = Number(_arr.filter((person) => typeof(person) === "number"));
+  //const num = Number(_arr.join(''));
+  return _arr;
 }
 
 
@@ -316,28 +315,47 @@ Not: Gönderi sayısı belli olmayan (NA) hesaba katmayın.
 */
 
 function platformaGoreCokGonderiYapanFenomen(arr,platform){
- const _arr = arr.filter((person) => person.posts !== 'NA' && person.platform === platform);// Filtered array whic has only requested platform data.
- const sortArr = _arr.map((person) => person.posts); // New Array that holds the posts of required platforms.
-  // const sortArr = _arr.map((person) => person.posts).sort(function(a, b){return b-a});
+ const _arr = arr.filter((person) => person.posts !== 'NA' && person.platform === platform ).sort(function(a,b) {
+  return b.posts - a.posts;
+ });// Filtered array whic has only requested platform data.
+ 
+ return _arr[0].profile;
+
+//  let byPosts = _arr.slice(0);
+
+//  let byPots = [..._arr].sort(function(a,b) {
+//   return b.posts - a.posts;
+//  });
+
+ //const arr_ = _arr.posts.sort(function(a, b){return b-a});
+
+ //const sortArr = _arr.map((person) => person.posts); // New Array that holds the posts of required platforms.
+  
+ 
+ // const sortArr = _arr.map((person) => person.posts).sort(function(a, b){return b-a});
   // const arr_ = _arr.map((person) => person.profile);
   // const str = arr_.join(" ");
   // return str;
   
   //let arr_ = _arr.filter();
-  
-  console.log("SortArray => ",sortArr);
 
-  let indeks = sortArr.indexOf(Math.max(...sortArr)); // the index number of the post which is the maximum number. 
+
+  
+  //console.log("SortArray => ",sortArr);
+
+  //let indeks = sortArr.indexOf(Math.max(...sortArr)); // the index number of the post which is the maximum number. 
   //we used Spread Operator here to copy sortArr because e couldnt get the index by using same array twice
   
-  const desireArr = _arr[indeks].profile; // This code gets the profiles of the maximum posts and declare  it to new array called desiredArr.
+ // const desireArr = _arr[indeks].profile; // This code gets the profiles of the maximum posts and declare  it to new array called desiredArr.
   
-  return desireArr;
   }
 
 
 console.log("Result => ", platformaGoreCokGonderiYapanFenomen(fenomenler,"TikTok"));
-console.log("Result => ", platformaGoreCokGonderiYapanFenomen(fenomenler,"Twitter"));
+//console.log("Result => ", platformaGoreCokGonderiYapanFenomen(fenomenler,"Twitter"));
+
+console.log("Fenomen Gönderim Sayısı =>  ",fenomenGonderimSayisi(fenomenler,"Ninja"));
+console.log("Fenomen Gönderim Sayısı =>  ",fenomenGonderimSayisi(fenomenler,"Will Smith"));
 
 /* ***** GÖREVLERİN SONU ***** */
 
