@@ -315,11 +315,10 @@ Not: Gönderi sayısı belli olmayan (NA) hesaba katmayın.
 */
 
 function platformaGoreCokGonderiYapanFenomen(arr,platform){
- const _arr = arr.filter((person) => person.posts !== 'NA' && person.platform === platform ).sort(function(a,b) {
-  return b.posts - a.posts;
- });// Filtered array whic has only requested platform data.
+  return arr.filter((person) => person.posts !== 'NA' && person.platform === platform ).sort(function(a,b) {
+  return b.posts - a.posts; })[0].profile;// Filtered array whic has only requested platform data.
  
- return _arr[0].profile;
+ //return _arr[0].profile;
 
 //  let byPosts = _arr.slice(0);
 
