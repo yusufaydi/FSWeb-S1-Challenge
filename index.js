@@ -316,27 +316,28 @@ Not: Gönderi sayısı belli olmayan (NA) hesaba katmayın.
 */
 
 function platformaGoreCokGonderiYapanFenomen(arr,platform){
- const _arr = arr.filter((person) => person.posts !== 'NA' && person.platform === platform);//.map((person) => person.posts).sort(function(a, b){return b-a});
- const sortArr = _arr.map((person) => person.posts);
+ const _arr = arr.filter((person) => person.posts !== 'NA' && person.platform === platform);// Filtered array whic has only requested platform data.
+ const sortArr = _arr.map((person) => person.posts); // New Array that holds the posts of required platforms.
   // const sortArr = _arr.map((person) => person.posts).sort(function(a, b){return b-a});
-  // let arr_ = _arr.map((person) => person.profile);
-  // let str = arr_.join(" ");
+  // const arr_ = _arr.map((person) => person.profile);
+  // const str = arr_.join(" ");
   // return str;
   
   //let arr_ = _arr.filter();
   
   console.log("SortArray => ",sortArr);
 
-  let indeks = sortArr.indexOf(Math.max(...sortArr));
+  let indeks = sortArr.indexOf(Math.max(...sortArr)); // the index number of the post which is the maximum number. 
+  //we used Spread Operator here to copy sortArr because e couldnt get the index by using same array twice
   
-  const desireArr = _arr[indeks].profile;
+  const desireArr = _arr[indeks].profile; // This code gets the profiles of the maximum posts and declare  it to new array called desiredArr.
   
   return desireArr;
   }
 
 
 console.log("Result => ", platformaGoreCokGonderiYapanFenomen(fenomenler,"TikTok"));
-//console.log("Result => ", platformaGoreCokGonderiYapanFenomen(fenomenler,"Instagram"));
+console.log("Result => ", platformaGoreCokGonderiYapanFenomen(fenomenler,"Twitter"));
 
 /* ***** GÖREVLERİN SONU ***** */
 
